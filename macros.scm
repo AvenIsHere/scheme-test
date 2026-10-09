@@ -1,5 +1,6 @@
 ;; SCHEME IMPLEMENTATION SPECIFIC - "define-macro" is not standard Scheme, it a legacy Lisp syntax.
 ;; takes an expression of form `a op b` and turns it into the Scheme standard `op a b`
+;; (a poorly written macro)
 (define-macro (infix expr) ;; expr is passed in as the literal expression. doing `infix (+ a b) would NOT pass in the result of a + b, it would pass in `+ a b`.
     (define expr_pre (car expr)) ;; takes the first element
     (define expr_in (car (cdr expr))) ;; takes the second item in the list (technically the first element of the second element, since all lists are pairs in Scheme)
